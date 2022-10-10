@@ -5,4 +5,5 @@ Code in this project largely relies on the Python pacakges MNE, mne-bids, mne-bi
 
 ## Study Description
 
+
 ## Stimulus Presentation Details
