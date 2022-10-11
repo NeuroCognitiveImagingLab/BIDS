@@ -1,0 +1,41 @@
+# Study info
+study_name: NCIL_EEG_template
+task: bci
+data_type: eeg
+# Ethics board name and protocol ID
+reb_info: Dalhousie SSHREB 20xx-xxxx
+# add additional project team member names
+authors: Aaron J. Newman
+# Specify source of study funding ('NSERC', 'SSHRC', etc.)
+funding: None
+
+# EEG recording details
+amp_mfr: BrainVision
+amp_model: actiCHamp
+sw_filt:
+  - Highpass filter:
+      - half-amplitude cutoff (Hz): .01
+  - Lowpass filter:
+      - half-amplitude cutoff (Hz): 130
+hw_filt:
+  - Anti-aliasing filter:
+    - half-amplitude cutoff (Hz): 130
+    - rolloff: 3dB per octave # obtain from amplifier/recording software manual
+eeg_ref: average
+eeg_ground: FCz
+cap_mfr: BrainVision
+cap_model: ActiCap
+eog:
+  - HEOG
+  - VEOG
+montage_fname: standard_1005
+
+# Events
+  # - event_id:
+
+# Lab Info - should be the same for all studies
+line_freq: 60
+instn: Dalhousie University
+instn_addr: Halifax, NS, Canada
+instn_dept: NeuroCognitive Imaging Lab, Department of Psychology & Neuroscience
+license: BSD 3-clause
