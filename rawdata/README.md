@@ -1,4 +1,4 @@
-# Raw data
+# `rawdata`
 In BIDS, `rawdata` data is the original, unprocessed (or minimally processed due to file format conversion) data in a BIDS-compatible format.
 
 This is distinguished from `sourcedata`, which should contain the original data files as collected by the acquisition systems, such as raw EEG data and stimulus presentation log files.

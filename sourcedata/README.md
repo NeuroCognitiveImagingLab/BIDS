@@ -1,4 +1,4 @@
-# Source data
+# `sourcedata`
 
 `sourcedata` should contain the original data files as collected by the acquisition systems, such as raw EEG data and stimulus presentation log files.
 
