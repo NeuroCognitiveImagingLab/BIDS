@@ -28,5 +28,6 @@ This contains a BIDS-compliant directory structure, along with scripts (in frien
 
 
 *Keep the license text below*
+
 ---
 Code in this project largely relies on the Python pacakges MNE, mne-bids, mne-bids-pipeline. Aditional code written by Aaron J Newman and ---, released under the [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause).
