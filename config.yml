@@ -5,7 +5,8 @@ data_type: eeg
 # Ethics board name and protocol ID
 reb_info: Dalhousie SSHREB 20xx-xxxx
 # add additional project team member names
-authors: Aaron J. Newman
+authors:
+  - Aaron J. Newman
 # Specify source of study funding ('NSERC', 'SSHRC', etc.)
 funding: None
 
