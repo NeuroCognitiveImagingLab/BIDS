@@ -31,12 +31,43 @@ eog:
   - VEOG
 montage_fname: standard_1005
 
-# Events
-  # event_id:
-
 # Lab Info - should be the same for all studies
 line_freq: 60
 instn: Dalhousie University
 instn_addr: Halifax, NS, Canada
 instn_dept: NeuroCognitive Imaging Lab, Department of Psychology & Neuroscience
 license: BSD 3-clause
+
+# Events (can get long)
+event_id: 
+  - 'Neutral/Inverted/Standard/L1'
+    - 211
+  #     - 'Neutral/Upright/Standard/L1':221
+  #     - 'Neutral/Inverted/Standard/L2':212
+  #     - 'Neutral/Upright/Standard/L2':222
+  #     - 'Neutral/Inverted/Standard/L3':213      
+  #     - 'Neutral/Upright/Standard/L3':223
+  #     - 'Neutral/Inverted/Standard/L4':214      
+  #     - 'Neutral/Upright/Standard/L4':224
+  #     - 'Neutral/Inverted/Standard/L5':215      
+  #     - 'Neutral/Upright/Standard/L5':225
+  #     - 'Neutral/Inverted/Standard/L6':216
+  #     - 'Neutral/Upright/Standard/L6':226
+  #     - 'Green/Inverted/Standard/L1':111      
+  #     - 'Green/Upright/Standard/L1':121
+  #     - 'Green/Inverted/Standard/L2':112      
+  #     - 'Green/Upright/Standard/L2':122
+  #     - 'Green/Inverted/Standard/L3':113      
+  #     - 'Green/Upright/Standard/L3':123
+  #     - 'Green/Inverted/Standard/L4':114      
+  #     - 'Green/Upright/Standard/L4':124
+  #     - 'Green/Inverted/Standard/L5':115      
+  #     - 'Green/Upright/Standard/L5':125
+  #     - 'Green/Inverted/Standard/L6':116      
+  #     - 'Green/Upright/Standard/L6':126
+  #     - 'Cue/L1':191
+  #     - 'Cue/L2':192 
+  #     - 'Cue/L3':193
+  #     - 'Cue/L4':194
+  #     - 'Cue/L5':195
+  #     - 'Cue/L6':196
