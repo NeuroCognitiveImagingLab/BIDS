@@ -2,3 +2,15 @@
 **/.DS_Store
 .ipynb_checkpoints
 **/.ipynb_checkpoints
+**/*.eeg
+**/*.vhdr
+**/*.vmrk
+**/*.cnt
+**/*.evt
+**/*.sen
+**/*.trg
+**/*.fif
+**/*.fdt
+**/*.set
+**/*.nii
+**/*.nii.gz
