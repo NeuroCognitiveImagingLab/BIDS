@@ -27,11 +27,6 @@ This contains a BIDS-compliant directory structure, along with scripts (in frien
 
 
 
-"And you will KNOW...my name is the LORD...when I strike my vengeance upon thee." BANG BANG BANGIDY BANG
- - Jules Winnfield...and also the Bible.
-
-
-
 *Keep the license text below*
 
 ---
