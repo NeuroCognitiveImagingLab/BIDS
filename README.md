@@ -17,22 +17,12 @@ This contains a BIDS-compliant directory structure, along with scripts (in frien
 - Open Jupyter lab and run the `init_BIDS_study.ipynb` script. You shouldn't typically need to make any changes to the script. This script will initialize the directory structure in a BIDS-compliant manner, creating metadata files based on your edits to `config.yml`
 - To import data, copy your raw, unprocessed data files (e.g., raw EEG data files, stimulus presentation log files) to subject-specific directories in `sourcedata`. See the README.md file in that directory for further instructions.
 
-*Edit below to describe your study*
-
-
 ## Study Description
-
+*Edit  to describe your study*
 
 ## Stimulus Presentation Details
+*Edit  to describe your study*
 
-
-
-"And you will KNOW...my name is the LORD...when I strike my vengeance upon thee." BANG BANG BANGIDY BANG
- - Jules Winnfield...and also the Bible.
-
-
-
-*Keep the license text below*
 
 ---
-Code in this project largely relies on the Python pacakges MNE, mne-bids, mne-bids-pipeline. Aditional code written by Aaron J Newman and ---, released under the [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause).
+Code in this project largely relies on the Python pacakges MNE, mne-bids, mne-bids-pipeline. Aditional code written by Aaron J Newman, released under the [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause).
