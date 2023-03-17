@@ -1,7 +1,9 @@
 .DS_Store
 **/.DS_Store
+**/._DAV
 .ipynb_checkpoints
 **/.ipynb_checkpoints
+**/.state*
 **/*.eeg
 **/*.vhdr
 **/*.vmrk
