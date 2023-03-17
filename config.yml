@@ -76,7 +76,7 @@ preprocessing_settings:
     - detrend: 1
     - reject:
     - flat:
-    - rereference: 
+    - rereference: average
     # - conditions: 
     #   - 'pic_onset'
     #   - 'match'
