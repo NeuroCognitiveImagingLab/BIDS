@@ -11,8 +11,10 @@ authors:
 funding: None
 
 # EEG recording details
-amp_mfr: BrainVision
-amp_model: actiCHamp
+amp_mfr: BrainVision  # TMSi
+amp_model: actiCHamp  # RefA8
+eeg_extn: vhdr        # raw, set
+
 sw_filt:
   - Highpass filter:
       - half-amplitude cutoff (Hz): .01
@@ -42,3 +44,74 @@ instn_addr: Halifax, NS, Canada
 instn_dept: NeuroCognitive Imaging Lab, Department of Psychology & Neuroscience
 license: BSD 3-clause
 
+
+# ERP preprocessing parameters
+preprocessing_settings:
+  filter:
+    - l_freq: 0.1
+    - l_freq_ica: 1.
+    - h_freq: 30.0
+    - filter_picks:
+      - eeg
+      - eog
+
+  # for multithreaded operations
+  n_jobs: 5
+
+  ica:
+    - ica_random_state: 42  # seed so ICA is reproducable each time it's run
+    - n_components: .95     # Specify n_components as a decimal to set % explained variance
+    - tstep: 1.0
+    - ica_zthresh: 2
+    - ica_zstep: .1
+    - n_max_eog: 2
+
+  # note that a blank value is mapped to None type in Python
+  # In contrast, putting 'None' in this file results in a string in Python (not what you want)
+  epoch:
+    - tmin: -0.500  # start of each epoch (in sec)
+    - tmax:  1.250  # end of each epoch (in sec)
+    # baseline should be left blank for preprocessing
+    - baseline:
+    - detrend: 1
+    - reject:
+    - flat:
+    - rereference: 
+    # - conditions: 
+    #   - 'pic_onset'
+    #   - 'match'
+    #   - 'mismatch'
+    # - contrasts:
+      # - N400: ['mismatch', 'match']
+
+
+### Analysis settings
+analysis_settings:
+  - t_min: -0.500
+  - t_max:  1.00
+  - baseline: (None, 0)
+  - outlier_thresh: 2.
+
+rois: 
+  - vertex:
+    - C3, Cz, C4, CP1, CPz, CP2, Pz
+    
+components:
+  n400:
+    t_min: -0.200
+    t_max: 1.00
+    baseline: (-0.200, 0)
+    reference: TP9, TP10
+    rois:
+      - vertex
+    peak_lat: 0.400
+    tw_width: .200
+    tw_range: 
+        - .250
+        - .550
+    component_meas: meana
+  
+  
+classification:
+  - test_size: .20
+  - random_state: 42 
