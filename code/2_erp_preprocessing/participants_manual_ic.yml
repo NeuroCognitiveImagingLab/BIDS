@@ -2,7 +2,7 @@
 # "add" are additional ICs to add to ica.exclude
 # "remove" are ICs that are auto-rejected but should be kept in the data (ie removed from ica.exclude)
 sub-999:
-  add_ics:
+  ics_to_exclude:
     [0, 1, 10, 11, 13, 14, 15]
-  rm_ics:
+  ics_do_not_exclude:
     [8]
