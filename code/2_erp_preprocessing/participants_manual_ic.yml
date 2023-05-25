@@ -1,8 +1,13 @@
 # Lists of independent components
-# "add" are additional ICs to add to ica.exclude
-# "remove" are ICs that are auto-rejected but should be kept in the data (ie removed from ica.exclude)
+# "manually_excluded_ic" lists ICs you want to add to ica.exclude
+# "manually_included_ic" lists ICs that were auto-rejected, but that you do NOT want in ica.exclude
 sub-999:
-  ics_to_exclude:
-    [0, 1, 10, 11, 13, 14, 15]
-  ics_do_not_exclude:
-    [8]
+  session1:
+    manually_excluded_ic:
+      [3, 7, 11]
+  session2: 
+    manually_included_ic:
+      [7]
+    manually_excluded_ic:
+      [10, 12, 13, 14]
+
