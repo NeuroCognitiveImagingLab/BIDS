@@ -59,6 +59,7 @@ preprocessing_settings:
   n_jobs: 8
 
   ica:
+    - ica_method: picard
     - ica_random_state: 42  # seed so ICA is reproducable each time it's run
     - n_components: .95     # Specify n_components as a decimal to set % explained variance
     - tstep: 1.0
