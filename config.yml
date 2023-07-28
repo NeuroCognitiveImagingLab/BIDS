@@ -1,20 +1,30 @@
 # Study info
-study_name: NCIL_EEG_template
-task: bci
+study_name: EDIT_ME
+task: EDIT_ME
+sessions: 
+  - EDIT_ME # default is '1'
 data_type: eeg
 # Ethics board name and protocol ID
-reb_info: Dalhousie SSHREB 20xx-xxxx
+reb_info: EDIT_ME
 # add additional project team member names
 authors:
+  - EDIT_ME
+  - EDIT_ME
   - Aaron J. Newman
 # Specify source of study funding ('NSERC', 'SSHRC', etc.)
-funding: None
+funding: EDIT_ME
 
 # EEG recording details
-amp_mfr: BrainVision  # TMSi
-amp_model: actiCHamp  # RefA8
-eeg_extn: vhdr        # raw, set
+amp_mfr: EDIT_ME # TMSi,  Brain Products, EGI
+amp_model: EDIT_ME # RefA8, actiChamp, NetAmps 100
+eeg_extn: EDIT_ME   # original data file extension, e.g.: .vhdr, .set, .raw
+out_format: BrainVision  # use this regardless of amp manufacturer or input data format
 
+beh_extn: .csv  # extension of original behavioural log files that are located in sourcedata (e.g., .csv, .txt, .log)
+logfile_string: EDIT_ME # string to identify log files in sourcedata directory (e.g., 'log', 'log_', 'logFile')
+
+# Check/edfit all of the next section
+# these parameters may be in the ampli\fier manual, or in the recording software settings
 sw_filt:
   - Highpass filter:
       - half-amplitude cutoff (Hz): .01
@@ -33,6 +43,7 @@ eog:
   - VEOG
 montage_fname: standard_1005
 
+
 # If we want 32 ch data + EOG with OpenVibe we need to record 66 channels, then drop ch 33-64
 # Otherwise, leave blank 
 # drop_ch: AF7, AF3, AF4, AF8, F5, F1, F2, F6, FT9, FT7, FC3, FC4, FT8, FT10, C5, C1, C2, C6, TP7, CP3, CPz, CP4, TP8, P5, P1, P2, P6, PO7, PO3, POz, PO4, PO8
@@ -44,8 +55,11 @@ instn_addr: Halifax, NS, Canada
 instn_dept: NeuroCognitive Imaging Lab, Department of Psychology & Neuroscience
 license: BSD 3-clause
 
+# Below are parameters for different preprocessing/analysis steps
+## For the ICA classification study, these in general should not be changed.
+## This will ensure that all datasets are processed the same way
 
-# ERP preprocessing parameters
+## ERP preprocessing parameters
 preprocessing_settings:
   filter:
     - l_freq: 0.1
@@ -60,8 +74,10 @@ preprocessing_settings:
 
   ica:
     - ica_method: picard
+    - ortho: False
+    - tol: .001
     - ica_random_state: 42  # seed so ICA is reproducable each time it's run
-    - n_components: .95     # Specify n_components as a decimal to set % explained variance
+    - n_components: 25     # Specify n_components as a decimal to set % explained variance
     - tstep: 1.0
     - ica_zthresh: 2
     - ica_zstep: .1
@@ -70,14 +86,15 @@ preprocessing_settings:
   # note that a blank value is mapped to None type in Python
   # In contrast, putting 'None' in this file results in a string in Python (not what you want)
   epoch:
-    - tmin: -0.500  # start of each epoch (in sec)
-    - tmax:  1.250  # end of each epoch (in sec)
+    - tmin: -1.0  # start of each epoch (in sec)
+    - tmax:  1.0  # end of each epoch (in sec)
     # baseline should be left blank for preprocessing
     - baseline:
     - detrend: 1
     - reject:
     - flat:
     - rereference: average
+    # in general we don't need to label conditions for IC classification; we just epoch around all event codes
     # - conditions: 
     #   - 'pic_onset'
     #   - 'match'
@@ -85,53 +102,34 @@ preprocessing_settings:
     # - contrasts:
       # - N400: ['mismatch', 'match']
 
-
 ### Analysis settings
 analysis_settings:
-  - t_min: -0.500
-  - t_max:  1.00
-  - baseline: (None, 0)
-  - outlier_thresh: 2.
-
-rois: 
-  - left:
-    - CP5, P3, P7, PO7, PO3
-  - vertex:
-    - C3, Cz, C4, CP1, CPz, CP2, Pz
-  - right:
-    - CP6, P4, P8, PO8, PO4
+  t_min: -0.100
+  t_max:  0.750
+  baseline: (None, 0)
+  outlier_thresh: 2.
+  p_thresh: .05
   
+rois: 
+  - vertex:
+    - Cz, CP1, CP2, Pz
+    
 components:
-  n170:
-    t_min: -0.100
-    t_max: .500
-    baseline: (-0.100, 0)
-    reference: average
-    rois:
-      - left
-      - right
-    peak_lat: 0.190
-    tw_width: .050
-    tw_range: 
-        - .090
-        - .290
-    component_meas: neg
-
   n400:
-    t_min: -0.100
-    t_max: 1.00
-    baseline: (-0.100, 0)
+#     t_min: -0.100
+#     t_max: 1.00
+#     baseline: (-.100, 0)
     reference: TP9, TP10
     rois:
       - vertex
-    peak_lat: 0.400
+    peak_lat: .300
     tw_width: .200
     tw_range: 
-        - .250
-        - .550
+        - .200
+        - .600
     component_meas: meana
   
-  
+# Machine learning classification settings
 classification:
-  - test_size: .20
+  - test_size: .20  # determines train-test split
   - random_state: 42 
