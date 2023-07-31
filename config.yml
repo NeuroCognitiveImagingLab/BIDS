@@ -46,6 +46,7 @@ montage_fname: standard_1005
 
 # If we want 32 ch data + EOG with OpenVibe we need to record 66 channels, then drop ch 33-64
 # Otherwise, leave blank 
+drop_ch: 
 # drop_ch: AF7, AF3, AF4, AF8, F5, F1, F2, F6, FT9, FT7, FC3, FC4, FT8, FT10, C5, C1, C2, C6, TP7, CP3, CPz, CP4, TP8, P5, P1, P2, P6, PO7, PO3, POz, PO4, PO8
 
 # Lab Info - should be the same for all studies
