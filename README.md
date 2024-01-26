@@ -81,6 +81,7 @@ The BIDS structure for an EEG study looks something like this:
     - This file is in YAML format. If you're not familiar with it, follow the format you see in the template file, and check out this [beginner's guide](https://circleci.com/blog/what-is-yaml-a-beginner-s-guide/)
 - Open Jupyter lab and run the `init_BIDS_study.ipynb` script. You shouldn't typically need to make any changes to the script. This script will initialize the directory structure in a BIDS-compliant manner, creating metadata files based on your edits to `config.yml`
 - To import data, copy your raw, unprocessed data files (e.g., raw EEG data files, stimulus presentation log files) to subject-specific directories in `sourcedata`. See the README.md file in that directory for further instructions.
+- edit the `rawdata/event_code_mappings.yml` file to describe the mappings between the event codes you sent from your stimulus program (which are often integers) and the labels you want them to have in the BIDS data files (which are typically strings).
 
 ## Study Description
 *Edit  to describe your study*
