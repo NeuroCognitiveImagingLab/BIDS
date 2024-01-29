@@ -16,3 +16,7 @@
 **/*.set
 **/*.nii
 **/*.nii.gz
+**/*.snirt
+**/*.nirs
+**/*.zip
+**/*.xdf
