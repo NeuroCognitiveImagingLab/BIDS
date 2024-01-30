@@ -4,8 +4,10 @@ task: EDIT_ME
 sessions: 
   - EDIT_ME # default is '1'
 data_type: eeg
+raw_extn: .xdf # .xdf, .vhdr, .set, .raw
+
 # Ethics board name and protocol ID
-reb_info: EDIT_ME
+reb_info: EDIT_ME  # Dalhousie SSHREB
 # add additional project team member names
 authors:
   - EDIT_ME
@@ -17,14 +19,25 @@ funding: EDIT_ME
 # EEG recording details
 amp_mfr: EDIT_ME # TMSi,  Brain Products, EGI
 amp_model: EDIT_ME # RefA8, actiChamp, NetAmps 100
+amp_serial: EDIT_ME # serial number of amplifier: actiChamp: 13060177
 eeg_extn: EDIT_ME   # original data file extension, e.g.: .vhdr, .set, .raw
 out_format: BrainVision  # use this regardless of amp manufacturer or input data format
 
 beh_extn: .csv  # extension of original behavioural log files that are located in sourcedata (e.g., .csv, .txt, .log)
 logfile_string: EDIT_ME # string to identify log files in sourcedata directory (e.g., 'log', 'log_', 'logFile')
 
+eeg_ref: average
+eeg_ground: FCz
+cap_mfr: BrainVision
+cap_model: ActiCap
+eog:                # Mapping recorded EOG ch names to desired. 
+  - HEOG: HEOG      # Can be the same if labels are correct
+  - VEOG: HEOG
+  
+montage_fname: easycap-M1 
+
 # Check/edfit all of the next section
-# these parameters may be in the ampli\fier manual, or in the recording software settings
+# these parameters may be in the amplifier manual, or in the recording software settings
 sw_filt:
   - Highpass filter:
       - half-amplitude cutoff (Hz): .01
@@ -34,14 +47,6 @@ hw_filt:
   - Anti-aliasing filter:
     - half-amplitude cutoff (Hz): 130
     - rolloff: 3dB per octave # obtain from amplifier/recording software manual
-eeg_ref: average
-eeg_ground: FCz
-cap_mfr: BrainVision
-cap_model: ActiCap
-eog:
-  - HEOG
-  - VEOG
-montage_fname: standard_1005
 
 
 # If we want 32 ch data + EOG with OpenVibe we need to record 66 channels, then drop ch 33-64
