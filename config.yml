@@ -7,7 +7,8 @@ data_type: eeg
 raw_extn: .xdf # .xdf, .vhdr, .set, .raw
 
 # Ethics board name and protocol ID
-reb_info: EDIT_ME  # Dalhousie SSHREB
+reb_info: 
+  - EDIT_ME  # Dalhousie SSHREB
 # add additional project team member names
 authors:
   - EDIT_ME
