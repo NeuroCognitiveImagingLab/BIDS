@@ -1,6 +1,0 @@
-# `derivatives`
-BIDS was originally designed to describe and apply consistent naming conventions to raw (unprocessed or minimally processed due to file format conversion) data. During analysis such data will be transformed and partial as well as final results will be saved. Such **derivatives** of the raw data *must* be kept separate from the raw data. This way one can protect the raw data from accidental changes by file permissions. In addition it is easy to distinguish partial results from the raw data and share the latter.
-
-Within `derivatives`, each data processing pipeline will typically have a dedicated sub-directory under which it stores all of its outputs. Different components of a pipeline can, however, also be stored under different subfolders. There are few restrictions on the directory names; it is RECOMMENDED to use the format ``<pipeline>-<variant>`` in cases where it is anticipated that the same pipeline will output more than one variant (for example, `AFNI-blurring` and `AFNI-noblurring`). For the sake of consistency, the subfolder name SHOULD be the `GeneratedBy.Name` field in `data_description.json`, optionally followed by a hyphen and a suffix.
-
-Source: [BIDS v1.7.0](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html#source-vs-raw-vs-derived-data)
