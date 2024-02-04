@@ -18,19 +18,19 @@ authors:
 funding: EDIT_ME
 
 # EEG recording details
-amp_mfr: EDIT_ME # TMSi,  Brain Products, EGI
-amp_model: EDIT_ME # RefA8, actiChamp, NetAmps 100
-amp_serial: EDIT_ME # serial number of amplifier: actiChamp: 13060177
-eeg_extn: EDIT_ME   # original data file extension, e.g.: .vhdr, .set, .raw
+Manufacturer: EDIT_ME # TMSi,  Brain Products, EGI
+ManufacturersModelName: EDIT_ME # RefA8, actiChamp, NetAmps 100
+DeviceSerialNumber: EDIT_ME # serial number of amplifier: actiChamp: 13060177
+raw_extn: EDIT_ME   # original data file extension, e.g.: .vhdr, .set, .raw
 out_format: BrainVision  # use this regardless of amp manufacturer or input data format
 
 beh_extn: .csv  # extension of original behavioural log files that are located in sourcedata (e.g., .csv, .txt, .log)
 logfile_string: EDIT_ME # string to identify log files in sourcedata directory (e.g., 'log', 'log_', 'logFile')
 
-eeg_ref: average
-eeg_ground: FCz
-cap_mfr: BrainVision
-cap_model: ActiCap
+EEGReference: average
+EEGGround: FCz
+CapManufacturer: BrainVision
+CapManufacturersModelName: ActiCap
 eog:                # Mapping recorded EOG ch names to desired. 
   - HEOG: HEOG      # Can be the same if labels are correct
   - VEOG: HEOG
@@ -57,9 +57,9 @@ drop_ch: AF7, AF3, AF4, AF8, F5, F1, F2, F6, FT9, FT7, FC3, FC4, FT8, FT10, C5, 
 
 # Lab Info - should be the same for all studies
 line_freq: 60
-instn: Dalhousie University
-instn_addr: Halifax, NS, Canada
-instn_dept: NeuroCognitive Imaging Lab, Department of Psychology & Neuroscience
+InstitutionName: Dalhousie University
+InstitutionAddress: Halifax, NS, Canada
+InstitutionalDepartmentName: NeuroCognitive Imaging Lab, Department of Psychology & Neuroscience
 license: BSD 3-clause
 
 # Below are parameters for different preprocessing/analysis steps
