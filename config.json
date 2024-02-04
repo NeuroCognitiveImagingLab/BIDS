@@ -96,7 +96,7 @@
       "h_freq" : 30,
       "filter_picks" : "eeg, eog"
     },
-    "ica" : {
+    "ICA" : {
       "ica_method" : "picard",
       "ortho" : false,
       "tol" : 0.001,
