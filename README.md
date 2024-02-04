@@ -7,9 +7,28 @@ This contains a BIDS-compliant directory structure, along with scripts (in frien
 # About BIDS
 [BIDS](https://bids.neuroimaging.io) is a standard for organizing neuroimaging data, including EEG. It is a set of conventions for how to organize data files and metadata, and is designed to be flexible enough to accommodate a wide range of experimental paradigms and data types. It is designed to be easy to use, and to facilitate data sharing and reproducible research.
 
-The BIDS structure for an EEG study looks something like this:
+The BIDS structure for an EEG study looks like the example below. Note that the raw data that is analyzed is not in a subdirectory, but other categories of files are in subfolders.
 
 ```
+- sub-001
+    - ses-01
+        - beh
+        - eeg
+    - ses-02
+- sub-002
+    - ses-01
+    - ses-02
+
+- sourcedata
+    - sub-001
+      - ses-01
+        - beh
+        - eeg
+      - ses-02
+    - sub-002
+      - ses-01
+      - ses-02
+
 — code
     - 0_init
     - 1_import_data
@@ -21,48 +40,44 @@ The BIDS structure for an EEG study looks something like this:
     - 7_stats_classification
 
 - derivatives
-    - preprocessing_pipeline_1
-        - s001
-        - s002
-    - preprocessing_pipeline_2
-    - statistical_analysis_1
-      - ERP_component_1
+    - 2_preprocessing_erp
+        - sub-001
+        - sub-002
+    - 3_visualization_erp
         - data
         - figures
         - tables
-    - classification_analysis_1
-      - classifier_1
+    - 4_measurement_erp
         - data
         - figures
         - tables
-        
-- rawdata
-    - s001
-      - ses-1
-        - beh
-        - eeg
-      - ses-2
-    - s002
-        
-- sourcedata
-    - sub-001
-      - ses-1
-        - beh
-        - eeg
-      - ses-2
-    - sub-002
+    - 5_stats_erp
+        - data
+        - figures
+        - tables
+    - 6_classification
+        - data
+        - figures
+        - tables
+    - 7_stats_classification
+        - data
+        - figures
+        - tables
 
-- config.yml
+- stimuli
+
+- config.json
 - dataset_description.json
 - README.md
-
-
+- CITATION.cff
+- LICENSE
+- .bidsignore
 ```
 
-- `config.yml` is a configuration file that contains metadata about the study. This includes things like the name of the study, the name of the PI, the name of the lab, etc. This file is used to populate the metadata files in the BIDS directory structure, and is also used by scripts to populate metadata in the data files themselves. **This file should be edited to reflect the details of your study.**
+- `config.json` is a configuration file that contains metadata about the study. This includes things like the name of the study, the name of the PI, the name of the lab, etc. This file is used to populate the metadata files in the BIDS directory structure, and is also used by scripts to populate metadata in the data files themselves. **This file should be edited to reflect the details of your study.**
 - `code` contains all code used to operate on the data sets, including file conversion/import, preprocessing, and analysis
 - `sourcedata` contains the original, unprocessed data files, organized into subfolders by modality (e.g., EEG, behavioural log files). These files should be write-protected as the original data should never be modified or deleted. In general, if a BIDS dataset is shared publicly, this folder should not be included, as it may contain sensitive information. However, it is useful to keep a copy of the original data in case it needs to be reprocessed.
-- `rawdata` contains BIDS-compliant raw datasets. These are typically the output of an import script that operates on data in `sourcedata` and converts it to BIDS-compliant formats.
+- `sub-???` contains BIDS-compliant raw datasets. These are typically the output of an import script that operates on data in `sourcedata` and converts it to BIDS-compliant formats.
 - `derivatives` contain versions of the data that are processed by scripts in the `code` folder. Separate folders in `derivatives` should be made for different types of outputs, e.g., the output of a preprocessing pipeline would go in one folder, but a statistical analysis on that preprocessed data in another. This organization makes it easy to perform different batches of operations on data and compare the results, as well as keeping things organized. Within a `derivatives` subfolder, data from individuals should be organized by subject, potentially under subfolders for the outputs of different preprocessing steps, if these are saved. Aggregated data (e.g., exploratory data analysis, statistical analysis) should be saved in subfolders under the relevant analysis step.
 - `README.md` is a Markdown file which you should edit to include a descirption of the study and experimental paradigm. This provides the context in which the data can be understood. You are currently reading the README file for this template, which you should edit to reflect the details of your study.
 
