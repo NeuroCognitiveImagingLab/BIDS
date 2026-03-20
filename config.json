@@ -1,25 +1,26 @@
 {
   "Study" : {
-    "Name" : "EDIT_ME",
-    "TaskName" : "EDIT_ME",
-    "TaskDescription" : "EDIT_ME",
+    "Name" : "ComChERP",
+    "TaskName" : "Reading",
+    "TaskDescription" : "Read sentences and answer comprehension questions",
     "Instructions" : "EDIT_ME",
     "Authors" : [
       "Aaron J. Newman",
-      "EDIT_ME",
-      "EDIT_ME",
-      "EDIT_ME"
+      "Emma Abray",
+      "Cindy Hamon-Hill",
+      "Arjun Litt",
+      "Emily Wei"
     ],
     "InstitutionName" : "Dalhousie University",
     "InstitutionAddress" : "Halifax, NS, Canada",
     "InstitutionalDepartmentName" : "NeuroCognitive Imaging Lab, Department of Psychology & Neuroscience",
     "Acknowledgements" : [
-      "EDIT_ME",
+      "Saisha Rankaduwa",
       "EDIT_ME",
       "EDIT_ME"
     ],
     "EthicsApprovals" : [
-      "Dalhousie University Social Sciences and Humanities Research Ethics Board 20xx-xxxx"
+      "Dalhousie University Social Sciences and Humanities Research Ethics Board 2025-8051"
     ],
     "Funding" : [
       "EDIT_ME"
@@ -28,7 +29,7 @@
   },
   "EEG" : {
     "data_type" : "eeg",
-    "raw_extn" : ".xdf",
+    "raw_extn" : ".vhdr",
     "beh_extn" : ".csv",
     "out_format" : "BrainVision",
     "epochs_suffix" : "-epo.fif",
@@ -41,16 +42,16 @@
       }
     },
     "CapManufacturer" : "EasyCap",
-    "EEGChannelCount" : 32,
+    "EEGChannelCount" : 16,
     "EOGChannelCount" : 2,
     "eog" : {
       "HEOG" : "HEOG",
       "VEOG" : "VEOG"
     },
-    "EEGGround" : "FCz",
+    "EEGGround" : "AFz",
     "Manufacturer" : "Brain Products",
-    "ManufacturersModelName" : "actiChamp",
-    "DeviceSerialNumber" : "13060177",
+    "ManufacturersModelName" : "V-Amp",
+    "DeviceSerialNumber" : "",
     "CapManufacturersModelName" : "ActiCap",
     "montage" : "easycap-M1"
   },
@@ -89,10 +90,10 @@
       "PO4",
       "PO8"
     ],
-    "n_jobs" : 8,
+    "n_jobs" : 12,
     "Filter" : {
       "l_freq" : 0.1,
-      "l_freq_ica" : 0.5,
+      "l_freq_ica" : 1,
       "h_freq" : 30,
       "filter_picks" : "eeg, eog"
     },
@@ -101,14 +102,14 @@
       "ortho" : false,
       "tol" : 0.001,
       "ica_random_state" : 42,
-      "n_components" : 25,
+      "n_components" : 0.98,
       "tstep" : 1,
       "ica_zthresh" : 2,
       "ica_zstep" : 0.1,
       "n_max_eog" : 2
     },
     "Epoch" : {
-      "tmin" : -1,
+      "tmin" : -0.2,
       "tmax" : 1,
       "baseline" : "None",
       "detrend" : 1,
@@ -120,6 +121,7 @@
   "Analysis" : {
     "tmin" : -0.1,
     "tmax" : 1,
+    "t_shift" : 0.03557,
     "baseline" : [
       "None",
       "0"
@@ -135,9 +137,9 @@
       ]
     },
     "components" : {
-      "n170" : {
+      "CPS" : {
         "t_min" : -0.1,
-        "t_max" : 0.5,
+        "t_max" : 1,
         "baseline" : [
           -0.1,
           0
@@ -148,9 +150,9 @@
         "rois" : [
           "vertex"
         ],
-        "peak_lat" : 0.17,
-        "tw_width" : 0.05,
-        "component_meas" : "neg"
+        "peak_lat" : 0.45,
+        "tw_width" : 0.3,
+        "component_meas" : "meana"
       },
       "n400" : {
         "t_min" : -0.1,
@@ -165,7 +167,7 @@
         "rois" : [
           "vertex"
         ],
-        "peak_lat" : 0.3,
+        "peak_lat" : 0.5,
         "tw_width" : 0.2,
         "component_meas" : "meana"
       }
@@ -176,6 +178,12 @@
       "test_size" : 0.2,
       "random_state" : 42,
       "cv" : 10
-    }
+    },
+    "conditions" : [
+      "CorrectComma",
+      "IncorrectComma",
+      "MissingComma",
+      "MissingIncorrectComma"
+    ]
   }
 }
